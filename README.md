@@ -71,3 +71,4 @@ class Nome:
     @staticmethod
     def CriaChave(nome):
         return nome.strip().lower()
+        
