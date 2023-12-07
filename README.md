@@ -1,3 +1,4 @@
+# agenda_completa.py
 
 import sys
 import pickle
@@ -105,3 +106,27 @@ class Telefone:
         if nulo_ou_vazio(valor):
             raise ValueError("Numero não pode ser None ou em branco")
         self.__numero = valor
+class Telefones(ListaUnica):
+    def __init__(self):
+        super().__init__(Telefone)
+class TiposTelefones(ListaUnica):
+    def __init__(self):
+        super().__init__(TipoTelefone)
+class DadoAgenda:
+    def __init__(self, nome):
+        self.nome = nome
+        self.telefones = Telefones()
+    @property
+    def nome(self):
+        return self.__nome
+    @nome.setter
+    def nome(self,valor):
+        if not isinstance(valor, None):
+            raise TypeError("nome deve ser uma instancia da classe Nome")
+        self.__nome = valor
+    def pequisaTelefone(self, telefone):
+        posiçao = self.telefones.pesquisa(Telefone(telefone))
+        if posiçao == -1
+            return None
+        else:
+            return self.telefones[posiçao]
