@@ -1,4 +1,3 @@
-## agenda_completa.py
 
 import sys
 import pickle
@@ -98,3 +97,11 @@ class Telefone:
         return self.numero == outro.numero and (
             self.tipo == outro.tipo or (
             self.tipo is None or outro.tipo is None))
+    @property
+    def numero(self):
+        return self.numero
+    @numero.setter
+    def numero(self, valor):
+        if nulo_ou_vazio(valor):
+            raise ValueError("Numero não pode ser None ou em branco")
+        self.__numero = valor
