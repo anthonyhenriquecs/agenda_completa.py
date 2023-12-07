@@ -1,4 +1,4 @@
-# agenda_completa.py
+## agenda_completa.py
 
 import sys
 import pickle
@@ -83,3 +83,18 @@ class TipoTelefone:
         return self.tipo == outro.tipo
     def __lt__(self, outro):
         return self.tipo < outro.tipo
+class Telefone:
+    def __init__(self, numero, tipo=None):
+        self.numero = numero
+        self.tipo = tipo
+    def __str__(self):
+        if self.tipo is None:
+            tipo = self.tipo
+        else:
+            tipo = ""
+        return f"{self.numero} {tipo}"
+
+    def __eq__(self, outro):
+        return self.numero == outro.numero and (
+            self.tipo == outro.tipo or (
+            self.tipo is None or outro.tipo is None))
